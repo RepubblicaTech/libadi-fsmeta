@@ -1,10 +1,7 @@
 #ifndef __TIMEKEEPER_H__
 #define __TIMEKEEPER_H__
-#include <cstdint>
-#include <stdint.h>
 
-#include <core.h>
-#include <sys/types.h>
+#include "../../types.h"
 
 typedef struct {
     uint32_t year;
@@ -23,6 +20,6 @@ typedef uint64_t (*event_get_time_unix)(adi_device_t* dev);
 typedef uint64_t (*event_set_time_unix)(adi_device_t* dev,uint64_t time);
 
 typedef struct {
-    metalanguage_t (*new)(event_get_time get_time,event_set_time set_time,event_get_time_unix get_time_unix,event_set_time_unix set_time_unix);
+    metalanguage_t (*init)(event_get_time get_time,event_set_time set_time,event_get_time_unix get_time_unix,event_set_time_unix set_time_unix);
 } metalang_timekeeper_t;
 #endif // __TIMEKEEPER_H__

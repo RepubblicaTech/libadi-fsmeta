@@ -1,9 +1,7 @@
 #ifndef __SCREENMGMNT_H__
 #define __SCREENMGMNT_H__
 
-#include <stdint.h>
-
-#include <core.h>
+#include "../../types.h"
 
 #define COLOR_CONFIG_RGB565 0
 #define COLOR_CONFIG_RGB888 1
@@ -36,7 +34,7 @@ typedef bool (*event_set_mode)(uint32_t fbid,uint32_t mode);
 
 
 typedef struct {
-    metalanguage_t (*new)( event_get_screens get_screens,event_set_mode set_mode);
-} metalang_x86_64_t;
+    metalanguage_t (*init)( event_get_screens get_screens,event_set_mode set_mode);
+} metalang_screenmgmt_t;
 
 #endif // __SCREENMGMNT_H__

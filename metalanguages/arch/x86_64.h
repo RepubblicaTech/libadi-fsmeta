@@ -1,9 +1,7 @@
 #ifndef __X86_64_H__
 #define __X86_64_H__
 
-#include <stdint.h>
-
-#include <core.h>
+#include "../../types.h"
 
 typedef struct {
 	uint64_t rax;
@@ -35,7 +33,7 @@ typedef struct {
 typedef void (*handler)(adi_device_t* dev, context_t* ctx); ;
 
 typedef struct {
-    metalanguage_t (*new)();
+    metalanguage_t (*init)();
     bool (*register_irq)(uint8_t irq, handler h);
     bool (*unregister_irq)(uint8_t irq);
 
