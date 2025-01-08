@@ -28,9 +28,9 @@ typedef struct {
 	uint64_t rflags;
 	uint64_t rsp;
 	uint64_t ss;
-} context_t;
+} adi_context_t;
 
-typedef void (*handler)(adi_device_t* dev, context_t* ctx); ;
+typedef void (*handler)(adi_device_t* dev, adi_context_t* ctx); ;
 
 typedef struct {
     metalanguage_t (*init)();

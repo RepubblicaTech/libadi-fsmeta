@@ -1,7 +1,6 @@
 #ifndef __ADI_CORE_H__
 #define __ADI_CORE_H__
 
-#include "metalanguages/misc/storage.h"
 #include "types.h"
 
 #include "metalanguages/arch/x86_64.h"
@@ -10,6 +9,8 @@
 #include "metalanguages/hid/kb.h"
 #include "metalanguages/video/screenmgmt.h"
 #include "metalanguages/video/fb.h"
+#include "metalanguages/misc/storage.h"
+#include "metalanguages/misc/timekeeper.h"
 
 typedef struct {
     metalang_x86_64_t* arch_x86_64;
@@ -19,7 +20,7 @@ typedef struct {
     metalang_screenmgmt_t* video_screenmgmt;
     metalang_fb_t* video_fb;
     metalang_storage_t* misc_storage;
-    metalang_storage_t* misc_timekeeper;
+    metalang_timekeeper_t* misc_timekeeper;
 
     //Logging API
     void (*log_info)(char* format,...);
@@ -41,7 +42,5 @@ typedef struct {
     bool (*memset)(void* dst, uint8_t value, size_t size); 
 
 } adi_core_t;
-
-typedef __attribute__((cdecl)) void (*adi_start)(adi_core_t* core);
 
 #endif // __ADI_CORE_H__
