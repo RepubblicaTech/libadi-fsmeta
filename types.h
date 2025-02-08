@@ -9,7 +9,7 @@ typedef struct {
     uint32_t id;
     char* name;
 
-    void* lang_impl;
+    uintptr_t lang_impl;
     void* params;
 } metalanguage_t;
 
