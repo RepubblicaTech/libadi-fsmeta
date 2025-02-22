@@ -20,6 +20,7 @@ typedef enum {
 typedef struct {
     metalanguage_t (*init)(sdev_ident_t disk, ml_fs_type fs_type);
 
+    // TODO: reading sectors, we're more likely going to do ATAPI
 } metalang_fs_t;
 
 
